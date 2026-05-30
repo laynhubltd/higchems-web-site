@@ -1,0 +1,58 @@
+import type { Event } from '@/domain/site-content/entities'
+
+export const eventsSeed: Event[] = [
+  {
+    id: 'open-day',
+    day: 15,
+    month: 'Mar',
+    badge: 'Admissions',
+    title: 'Spring Open Day & Campus Tour',
+    location: 'HIGCHEMS Main Campus, Takum',
+    time: '9:00 AM – 3:00 PM',
+  },
+  {
+    id: 'matriculation',
+    day: 22,
+    month: 'Mar',
+    badge: 'Ceremony',
+    title: 'Matriculation Ceremony 2025',
+    location: 'College Auditorium',
+    time: '10:00 AM',
+  },
+  {
+    id: 'health-fair',
+    day: 5,
+    month: 'Apr',
+    badge: 'Community',
+    title: 'Takum Community Health Fair',
+    location: 'High Level Community Centre',
+    time: '8:00 AM – 4:00 PM',
+  },
+  {
+    id: 'research',
+    day: 18,
+    month: 'Apr',
+    badge: 'Research',
+    title: 'Health Sciences Research Symposium',
+    location: 'HIGCHEMS Conference Hall',
+    time: '9:00 AM – 5:00 PM',
+  },
+  {
+    id: 'career',
+    day: 2,
+    month: 'May',
+    badge: 'Careers',
+    title: 'Healthcare Career Fair',
+    location: 'Student Centre, Takum',
+    time: '10:00 AM – 2:00 PM',
+  },
+  {
+    id: 'graduation',
+    day: 20,
+    month: 'Jun',
+    badge: 'Ceremony',
+    title: 'Convocation & Graduation 2025',
+    location: 'College Grounds',
+    time: '11:00 AM',
+  },
+]

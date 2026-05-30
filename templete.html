@@ -1,0 +1,2326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evergreen University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/reset.min.css"
+    />
+    <style>
+      /* ── BRAND TOKENS ──────────────────────────────────────────────────────────
+   Single brand: Navy  #0a1e3c  (deep #050f1f · mid #1a3a6b · tint #e8edf4 · tint2 #f2f5f9)
+   One accent:   Gold  #c9a227  (on-dark brighter: #f0c040 · tint #f5ecd1)
+   Neutrals:     #f4f6f9 · #fff · #5a6a7a · #8a9aaa
+   Semantic only: success #16a34a · warning #d97706 · danger #dc2626
+────────────────────────────────────────────────────────────────────────── */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --navy: #0a1e3c;
+        --navy-mid: #1a3a6b;
+        --navy-deep: #050f1f;
+        --navy-tint: #e8edf4;
+        --navy-tint2: #f2f5f9;
+        --gold: #c9a227;
+        --gold-light: #f0c040;
+        --gold-tint: #f5ecd1;
+        --white: #fff;
+        --surface: #f4f6f9;
+        --muted: #8a9aaa;
+        --body: #1a2a3a;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--surface);
+        color: var(--body);
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(5, 15, 31, 0.97);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .nav-logo span {
+        color: var(--gold-light);
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #fff;
+      }
+      .nav-cta {
+        background: var(--gold-light);
+        color: var(--navy);
+        border: none;
+        padding: 9px 22px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: opacity 0.2s;
+      }
+      .nav-cta:hover {
+        opacity: 0.88;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        background: var(--navy-deep);
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-top: 68px;
+      }
+      .hero-grid-bg {
+        position: absolute;
+        inset: 0;
+        opacity: 0.025;
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 60px,
+            #fff 60px,
+            #fff 61px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 60px,
+            #fff 60px,
+            #fff 61px
+          );
+      }
+      .hero-glow {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(201, 162, 39, 0.06);
+      }
+      .hero-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 80px 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(201, 162, 39, 0.11);
+        border: 1px solid rgba(201, 162, 39, 0.25);
+        color: var(--gold-light);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(38px, 5vw, 62px);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+      .hero-title em {
+        font-style: normal;
+        color: var(--gold-light);
+      }
+      .hero-sub {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: 36px;
+        max-width: 460px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--gold-light);
+        color: var(--navy);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.2s;
+      }
+      .btn-primary:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+      .btn-ghost-white {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.22);
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.2s;
+      }
+      .btn-ghost-white:hover {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .hero-search {
+        margin-top: 36px;
+      }
+      .search-bar {
+        display: flex;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 480px;
+      }
+      .search-bar input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 14px 18px;
+        font-size: 14px;
+        color: #fff;
+        font-family: "DM Sans", sans-serif;
+      }
+      .search-bar input::placeholder {
+        color: rgba(255, 255, 255, 0.28);
+      }
+      .search-bar button {
+        background: var(--gold-light);
+        border: none;
+        color: var(--navy);
+        padding: 0 22px;
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+      }
+      .hero-kpi {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 14px;
+        overflow: hidden;
+        margin-top: 40px;
+      }
+      .hero-kpi-item {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 20px;
+        text-align: center;
+      }
+      .hero-kpi-num {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--gold-light);
+      }
+      .hero-kpi-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 4px;
+        letter-spacing: 0.3px;
+      }
+      /* Hero right column */
+      .hero-visual {
+        position: relative;
+      }
+      .hero-mockup {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+        overflow: hidden;
+        background: linear-gradient(145deg, var(--navy), var(--navy-mid));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-mockup span {
+        font-size: 64px;
+        opacity: 0.12;
+      }
+      .hero-mockup p {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.16);
+      }
+      .float-card {
+        position: absolute;
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px 18px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      .float-card .fc-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      .float-card .fc-val {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .float-card-dark {
+        position: absolute;
+        background: var(--navy);
+        border: 1px solid rgba(201, 162, 39, 0.2);
+        border-radius: 12px;
+        padding: 14px 18px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .float-card-dark .fc-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.38);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      .float-card-dark .fc-val {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        background: #16a34a;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.28;
+        }
+      }
+      .avatar-row {
+        display: flex;
+        gap: 3px;
+        margin-top: 10px;
+      }
+      .av {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--navy-tint);
+        border: 2px solid #fff;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        font-weight: 700;
+      }
+
+      /* SHARED SECTION */
+      .section {
+        padding: 96px 0;
+      }
+      .si {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 12px;
+      }
+      .sec-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .sec-sub {
+        font-size: 16px;
+        color: #5a6a7a;
+        line-height: 1.7;
+        max-width: 560px;
+      }
+      .link-more {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+        text-decoration: none;
+      }
+
+      /* STATS BAND */
+      .stats-band {
+        background: var(--navy);
+        padding: 60px 0;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .stat-item {
+        text-align: center;
+        padding: 32px 20px;
+        position: relative;
+      }
+      .stat-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+      .stat-lbl {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 8px;
+        font-weight: 500;
+      }
+      .stat-sub {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.22);
+        margin-top: 4px;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-img-wrap {
+        position: relative;
+      }
+      .about-img {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 20px;
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-badge {
+        position: absolute;
+        bottom: 24px;
+        right: -20px;
+        background: var(--navy);
+        color: #fff;
+        padding: 16px 20px;
+        border-radius: 12px;
+        text-align: center;
+        border: 1px solid rgba(201, 162, 39, 0.18);
+      }
+      .about-badge .num {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--gold-light);
+      }
+      .about-badge .txt {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 2px;
+      }
+      .feats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .feat {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .feat-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+      }
+      .feat-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 3px;
+      }
+      .feat-text {
+        font-size: 13px;
+        color: #6a7a8a;
+        line-height: 1.5;
+      }
+      .btn-navy-outline {
+        background: transparent;
+        color: var(--navy);
+        border: 1.5px solid var(--navy-tint);
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.2s;
+      }
+      .btn-navy-outline:hover {
+        border-color: var(--navy);
+        background: var(--navy-tint);
+      }
+
+      /* PROGRAMS */
+      .prog-bg {
+        background: var(--surface);
+      }
+      .prog-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+      .prog-tab {
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 1.5px solid var(--navy-tint);
+        background: var(--white);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        color: #6a7a8a;
+        transition: all 0.2s;
+        font-family: "DM Sans", sans-serif;
+      }
+      .prog-tab.active,
+      .prog-tab:hover {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+      }
+      .prog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .prog-card {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--navy-tint);
+        background: var(--white);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .prog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 64px rgba(10, 30, 60, 0.1);
+      }
+      .prog-card-img {
+        height: 160px;
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+      .prog-card-body {
+        padding: 24px;
+      }
+      .prog-cat {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--gold);
+        margin-bottom: 8px;
+      }
+      .prog-title {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .prog-text {
+        font-size: 13px;
+        color: #6a7a8a;
+        line-height: 1.6;
+      }
+      .prog-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--navy-tint);
+      }
+      .prog-count {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .prog-link {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      /* ACTIVITIES */
+      .act-bg {
+        background: var(--white);
+      }
+      .act-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .act-card {
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--navy-tint);
+        transition: all 0.3s;
+      }
+      .act-card:hover {
+        box-shadow: 0 16px 48px rgba(10, 30, 60, 0.1);
+        transform: translateY(-3px);
+      }
+      .act-img {
+        height: 140px;
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+      }
+      .act-body {
+        padding: 18px;
+      }
+      .act-tag {
+        display: inline-block;
+        background: var(--navy-tint);
+        color: var(--navy);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      .act-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .act-text {
+        font-size: 12px;
+        color: #8a9aaa;
+        line-height: 1.5;
+      }
+      .act-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .act-stat {
+        background: var(--navy);
+        border-radius: 14px;
+        padding: 24px;
+        text-align: center;
+      }
+      .act-stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--gold-light);
+      }
+      .act-stat-lbl {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.42);
+        margin-top: 6px;
+      }
+
+      /* EVENTS */
+      .evt-bg {
+        background: var(--navy-deep);
+      }
+      .evt-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .evt-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 14px;
+        padding: 24px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .evt-item:hover {
+        background: rgba(255, 255, 255, 0.055);
+        border-color: rgba(201, 162, 39, 0.28);
+      }
+      .evt-date {
+        min-width: 56px;
+        text-align: center;
+        background: rgba(201, 162, 39, 0.09);
+        border: 1px solid rgba(201, 162, 39, 0.16);
+        border-radius: 10px;
+        padding: 10px 8px;
+      }
+      .evt-day {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+      .evt-month {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: rgba(201, 162, 39, 0.5);
+        margin-top: 2px;
+      }
+      .evt-info {
+        flex: 1;
+      }
+      .evt-badge {
+        display: inline-block;
+        background: rgba(201, 162, 39, 0.1);
+        color: var(--gold-light);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+      .evt-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 6px;
+        line-height: 1.4;
+      }
+      .evt-meta {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.3);
+        display: flex;
+        gap: 14px;
+      }
+
+      /* FACULTY */
+      .fac-bg {
+        background: var(--surface);
+      }
+      .fac-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+      }
+      .fac-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--navy-tint);
+        text-align: center;
+        padding-bottom: 24px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .fac-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 56px rgba(10, 30, 60, 0.1);
+      }
+      .fac-initials {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--navy);
+        background: var(--navy-tint);
+      }
+      .fac-name {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 16px 16px 4px;
+      }
+      .fac-role {
+        font-size: 11px;
+        color: var(--gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 6px;
+      }
+      .fac-dept {
+        font-size: 13px;
+        color: #6a7a8a;
+        margin: 0 16px 14px;
+        line-height: 1.4;
+      }
+      .fac-social {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      .fac-social a {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--navy);
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+      .fac-social a:hover {
+        background: var(--navy);
+        color: var(--gold-light);
+      }
+
+      /* GALLERY */
+      .gal-bg {
+        background: var(--white);
+      }
+      .gal-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 12px;
+        margin-top: 48px;
+      }
+      .gal-item {
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gal-item-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+      }
+      .gal-1 {
+        grid-column: span 5;
+        height: 260px;
+        background: var(--navy);
+      }
+      .gal-2 {
+        grid-column: span 4;
+        height: 260px;
+        background: var(--navy-mid);
+      }
+      .gal-3 {
+        grid-column: span 3;
+        height: 260px;
+        background: var(--navy-tint);
+      }
+      .gal-4 {
+        grid-column: span 3;
+        height: 180px;
+        background: var(--navy-tint2);
+      }
+      .gal-5 {
+        grid-column: span 5;
+        height: 180px;
+        background: var(--navy-mid);
+      }
+      .gal-6 {
+        grid-column: span 4;
+        height: 180px;
+        background: var(--navy);
+      }
+
+      /* TESTIMONIALS */
+      .test-bg {
+        background: var(--navy);
+        padding: 96px 0;
+      }
+      .test-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 52px;
+      }
+      .test-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 28px;
+        transition: all 0.3s;
+      }
+      .test-card:hover {
+        background: rgba(255, 255, 255, 0.065);
+        border-color: rgba(201, 162, 39, 0.22);
+      }
+      .test-quote {
+        font-size: 36px;
+        color: var(--gold-light);
+        line-height: 1;
+        margin-bottom: 16px;
+        font-family: "Playfair Display", serif;
+      }
+      .test-text {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .test-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .test-av {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gold-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .test-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .test-role {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.32);
+        margin-top: 2px;
+      }
+
+      /* NEWS */
+      .news-bg {
+        background: var(--surface);
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 24px;
+      }
+      .news-card {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--navy-tint);
+        background: var(--white);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .news-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(10, 30, 60, 0.1);
+      }
+      .news-img {
+        background: var(--navy-tint);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        height: 200px;
+      }
+      .news-img-hero {
+        background: var(--navy);
+        height: 260px;
+      }
+      .news-body {
+        padding: 22px;
+      }
+      .news-tag {
+        display: inline-block;
+        background: var(--navy);
+        color: var(--gold-light);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 3px 10px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+      .news-title {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+      .news-title-lg {
+        font-size: 22px;
+      }
+      .news-text {
+        font-size: 13px;
+        color: #6a7a8a;
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .news-meta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* CTA */
+      .cta-strip {
+        background: var(--navy);
+        padding: 80px 0;
+        border-top: 1px solid rgba(201, 162, 39, 0.12);
+      }
+      .cta-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      .cta-title {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .cta-sub {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 8px;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 14px;
+        flex-shrink: 0;
+      }
+      .btn-gold {
+        background: var(--gold-light);
+        color: var(--navy);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        white-space: nowrap;
+        transition: all 0.2s;
+      }
+      .btn-gold:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+      .btn-ghost-nav {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+        white-space: nowrap;
+        transition: all 0.2s;
+      }
+      .btn-ghost-nav:hover {
+        border-color: rgba(255, 255, 255, 0.48);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--navy-deep);
+        padding: 72px 0 32px;
+      }
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .f-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .f-logo span {
+        color: var(--gold-light);
+      }
+      .f-desc {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.3);
+        line-height: 1.7;
+        max-width: 300px;
+      }
+      .f-contact {
+        margin-top: 20px;
+      }
+      .f-contact p {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.35);
+        margin: 6px 0;
+      }
+      .f-col h4 {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 20px;
+      }
+      .f-col ul {
+        list-style: none;
+      }
+      .f-col li {
+        margin-bottom: 10px;
+      }
+      .f-col a {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .f-col a:hover {
+        color: var(--gold-light);
+      }
+      .footer-btm {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 28px;
+      }
+      .f-copy {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.18);
+      }
+      .f-social {
+        display: flex;
+        gap: 10px;
+      }
+      .soc-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.38);
+        font-size: 13px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+      .soc-btn:hover {
+        background: var(--gold-light);
+        color: var(--navy);
+      }
+
+      /* SCROLL FX */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 960px) {
+        .hero-inner,
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-visual {
+          display: none;
+        }
+        .stats-grid,
+        .act-grid,
+        .fac-grid,
+        .test-grid,
+        .prog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .news-grid,
+        .evt-list {
+          grid-template-columns: 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cta-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+        .cta-btns {
+          justify-content: center;
+        }
+        .act-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .stats-grid,
+        .act-grid,
+        .fac-grid,
+        .test-grid,
+        .prog-grid,
+        .act-stats {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .section {
+          padding: 64px 0;
+        }
+        .feats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="nav-logo">Ever<span>green</span> University</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#activities">Campus Life</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#faculty">Faculty</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
+        <button class="nav-cta">Apply Now</button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid-bg"></div>
+      <div
+        class="hero-glow"
+        style="width: 640px; height: 640px; top: -220px; right: -120px"
+      ></div>
+      <div
+        class="hero-glow"
+        style="width: 320px; height: 320px; bottom: 40px; left: -100px"
+      ></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-pill">🏛️ &nbsp; Est. 1892 · World Top 50</div>
+          <h1 class="hero-title">
+            Shape the Future.<br /><em>Begin Here.</em>
+          </h1>
+          <p class="hero-sub">
+            Evergreen University has been empowering students to lead, innovate,
+            and transform society for over 130 years. Join a global community of
+            learners, researchers, and change-makers.
+          </p>
+          <div class="hero-btns">
+            <button class="btn-primary">Explore Programs</button>
+            <button class="btn-ghost-white">Virtual Campus Tour</button>
+          </div>
+          <div class="hero-search">
+            <div class="search-bar">
+              <input
+                type="text"
+                placeholder="Search programs, departments, faculty…"
+              />
+              <button>Search</button>
+            </div>
+          </div>
+          <div class="hero-kpi">
+            <div class="hero-kpi-item">
+              <div class="hero-kpi-num">42K+</div>
+              <div class="hero-kpi-label">Students Enrolled</div>
+            </div>
+            <div class="hero-kpi-item">
+              <div class="hero-kpi-num">98%</div>
+              <div class="hero-kpi-label">Employment Rate</div>
+            </div>
+            <div class="hero-kpi-item">
+              <div class="hero-kpi-num">180+</div>
+              <div class="hero-kpi-label">Countries Represented</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-mockup">
+            <span>🎓</span>
+            <p>Evergreen University Campus</p>
+          </div>
+          <div
+            class="float-card"
+            style="bottom: -20px; left: -28px; min-width: 180px"
+          >
+            <div class="fc-label">Class of 2024</div>
+            <div class="fc-val">4,200 Graduates</div>
+            <div class="avatar-row">
+              <div class="av">AK</div>
+              <div class="av">BM</div>
+              <div class="av">YS</div>
+              <div class="av">+</div>
+            </div>
+          </div>
+          <div class="float-card-dark" style="top: 24px; right: -24px">
+            <div class="fc-label">
+              <span class="live-dot"></span>Applications Open
+            </div>
+            <div class="fc-val">Spring Semester 2025</div>
+            <div
+              style="
+                font-size: 11px;
+                color: rgba(201, 162, 39, 0.6);
+                margin-top: 4px;
+              "
+            >
+              Deadline: Jan 15, 2025
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAND -->
+    <div class="stats-band">
+      <div class="si">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num" id="s1">0</div>
+            <div class="stat-lbl">Academic Programs</div>
+            <div class="stat-sub">Across 12 colleges</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="s2">0</div>
+            <div class="stat-lbl">Faculty Members</div>
+            <div class="stat-sub">World-class researchers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="s3">0</div>
+            <div class="stat-lbl">Nobel Laureates</div>
+            <div class="stat-sub">Alumni & faculty</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="s4">0</div>
+            <div class="stat-lbl">Research Centers</div>
+            <div class="stat-sub">Cutting-edge labs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" style="background: var(--white)">
+      <div class="si">
+        <div class="about-grid">
+          <div class="about-img-wrap fade-up">
+            <div class="about-img">
+              <div style="text-align: center">
+                <div style="font-size: 80px; opacity: 0.3">🏛️</div>
+                <div
+                  style="
+                    font-family: &quot;Playfair Display&quot;, serif;
+                    font-size: 15px;
+                    font-weight: 600;
+                    margin-top: 12px;
+                    color: var(--navy);
+                  "
+                >
+                  Heritage Hall, 1892
+                </div>
+              </div>
+            </div>
+            <div class="about-badge">
+              <div class="num">#7</div>
+              <div class="txt">Global Ranking<br />QS World 2024</div>
+            </div>
+          </div>
+          <div class="fade-up">
+            <p class="eyebrow">About Evergreen</p>
+            <h2 class="sec-title">
+              A Legacy of Excellence,<br />A Future of Innovation
+            </h2>
+            <p class="sec-sub">
+              Founded in 1892, Evergreen University stands as a beacon of
+              academic achievement, research innovation, and social
+              responsibility. Our 285-acre campus is home to 42,000 students
+              from 180+ countries, united by a shared commitment to discovery
+              and impact.
+            </p>
+            <div class="feats">
+              <div class="feat">
+                <div class="feat-icon">🎓</div>
+                <div>
+                  <div class="feat-title">Academic Excellence</div>
+                  <div class="feat-text">
+                    Top-ranked programs recognized globally
+                  </div>
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-icon">🔬</div>
+                <div>
+                  <div class="feat-title">World-Class Research</div>
+                  <div class="feat-text">$2.1B in annual research funding</div>
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-icon">🌐</div>
+                <div>
+                  <div class="feat-title">Global Network</div>
+                  <div class="feat-text">360,000+ alumni in 190 countries</div>
+                </div>
+              </div>
+              <div class="feat">
+                <div class="feat-icon">🤝</div>
+                <div>
+                  <div class="feat-title">Industry Partners</div>
+                  <div class="feat-text">
+                    500+ corporate partnerships worldwide
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; margin-top: 32px">
+              <button
+                class="btn-primary"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+              >
+                Our Story
+              </button>
+              <button class="btn-navy-outline">Meet Leadership</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="section prog-bg" id="programs">
+      <div class="si">
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 24px;
+          "
+          class="fade-up"
+        >
+          <div>
+            <p class="eyebrow">Academic Programs</p>
+            <h2 class="sec-title">Find Your Path</h2>
+          </div>
+          <a href="#" class="link-more">View all programs →</a>
+        </div>
+        <div class="prog-tabs">
+          <button class="prog-tab active">All Programs</button>
+          <button class="prog-tab">Science & Tech</button>
+          <button class="prog-tab">Arts & Humanities</button>
+          <button class="prog-tab">Business</button>
+          <button class="prog-tab">Medicine & Health</button>
+          <button class="prog-tab">Law & Policy</button>
+        </div>
+        <div class="prog-grid">
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">💻</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Science & Technology</div>
+              <div class="prog-title">Computer Science & AI</div>
+              <div class="prog-text">
+                Explore machine learning, software engineering, and the
+                frontiers of artificial intelligence with world-leading faculty.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">1,240 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">⚗️</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Science & Technology</div>
+              <div class="prog-title">Biomedical Sciences</div>
+              <div class="prog-text">
+                Cutting-edge research in genetics, molecular biology, and
+                clinical medicine at our state-of-the-art labs.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">890 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">📊</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Business</div>
+              <div class="prog-title">MBA & Management</div>
+              <div class="prog-text">
+                A globally recognized business education with specializations in
+                finance, entrepreneurship, and sustainable business.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">2,100 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">🏛️</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Arts & Humanities</div>
+              <div class="prog-title">Philosophy & Ethics</div>
+              <div class="prog-text">
+                Engage with the great traditions of human thought and develop
+                rigorous critical thinking for any career path.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">420 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">⚖️</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Law & Policy</div>
+              <div class="prog-title">International Law</div>
+              <div class="prog-text">
+                Train at one of the top law schools globally, with strong ties
+                to international courts and NGOs.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">680 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+          <div class="prog-card fade-up">
+            <div class="prog-card-img">🩺</div>
+            <div class="prog-card-body">
+              <div class="prog-cat">Medicine & Health</div>
+              <div class="prog-title">Doctor of Medicine</div>
+              <div class="prog-text">
+                Comprehensive medical training with residencies at leading
+                teaching hospitals and a research-integrated curriculum.
+              </div>
+              <div class="prog-footer">
+                <span class="prog-count">760 enrolled</span
+                ><span class="prog-link">Learn more →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section act-bg" id="activities">
+      <div class="si">
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+          "
+          class="fade-up"
+        >
+          <div>
+            <p class="eyebrow">Campus Life</p>
+            <h2 class="sec-title">Life Beyond the Classroom</h2>
+          </div>
+          <a href="#" class="link-more">All activities →</a>
+        </div>
+        <div class="act-grid">
+          <div class="act-card fade-up">
+            <div class="act-img">🏊</div>
+            <div class="act-body">
+              <span class="act-tag">Sports</span>
+              <div class="act-title">Athletics & Recreation</div>
+              <div class="act-text">
+                32 varsity sports, Olympic-sized pool, rock climbing wall, and
+                over 40 fitness classes weekly.
+              </div>
+            </div>
+          </div>
+          <div class="act-card fade-up">
+            <div class="act-img">🎭</div>
+            <div class="act-body">
+              <span class="act-tag">Arts</span>
+              <div class="act-title">Performing Arts</div>
+              <div class="act-text">
+                Theater, music, and dance programs with a 1,200-seat performing
+                arts center open year-round.
+              </div>
+            </div>
+          </div>
+          <div class="act-card fade-up">
+            <div class="act-img">🌿</div>
+            <div class="act-body">
+              <span class="act-tag">Community</span>
+              <div class="act-title">Sustainability Clubs</div>
+              <div class="act-text">
+                Join 14 sustainability-focused student organizations working on
+                real-world environmental challenges.
+              </div>
+            </div>
+          </div>
+          <div class="act-card fade-up">
+            <div class="act-img">🎨</div>
+            <div class="act-body">
+              <span class="act-tag">Creative</span>
+              <div class="act-title">Design & Media Lab</div>
+              <div class="act-text">
+                State-of-the-art studios for film, graphic design, 3D printing,
+                and digital media creation.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="act-stats">
+          <div class="act-stat">
+            <div class="act-stat-num">250+</div>
+            <div class="act-stat-lbl">Student Clubs</div>
+          </div>
+          <div class="act-stat">
+            <div class="act-stat-num">32</div>
+            <div class="act-stat-lbl">Varsity Sports</div>
+          </div>
+          <div class="act-stat">
+            <div class="act-stat-num">18</div>
+            <div class="act-stat-lbl">Dining Options</div>
+          </div>
+          <div class="act-stat">
+            <div class="act-stat-num">285</div>
+            <div class="act-stat-lbl">Acre Campus</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="section evt-bg" id="events">
+      <div class="si">
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+          "
+          class="fade-up"
+        >
+          <div>
+            <p class="eyebrow" style="color: var(--gold-light)">
+              Upcoming Events
+            </p>
+            <h2 class="sec-title" style="color: #fff">What's Happening</h2>
+            <p
+              style="
+                font-size: 15px;
+                color: rgba(255, 255, 255, 0.38);
+                margin-top: 8px;
+                max-width: 480px;
+              "
+            >
+              Stay connected with lectures, cultural celebrations, sports, and
+              academic milestones happening across campus.
+            </p>
+          </div>
+          <a
+            href="#"
+            style="
+              font-size: 14px;
+              font-weight: 600;
+              color: var(--gold-light);
+              text-decoration: none;
+              flex-shrink: 0;
+            "
+            >Full calendar →</a
+          >
+        </div>
+        <div class="evt-list">
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">18</div>
+              <div class="evt-month">Jan</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Lecture</span>
+              <div class="evt-title">
+                AI & Society: Navigating the Next Decade
+              </div>
+              <div class="evt-meta">
+                <span>📍 Auditorium A, Main Hall</span><span>🕕 6:00 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">22</div>
+              <div class="evt-month">Jan</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Sports</span>
+              <div class="evt-title">
+                Evergreen Eagles vs Riverside — Basketball Championship
+              </div>
+              <div class="evt-meta">
+                <span>📍 Sports Complex Arena</span><span>🕕 7:30 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">28</div>
+              <div class="evt-month">Jan</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Cultural</span>
+              <div class="evt-title">
+                International Week: Global Food & Culture Festival
+              </div>
+              <div class="evt-meta">
+                <span>📍 Campus Green</span><span>🕕 12:00 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">03</div>
+              <div class="evt-month">Feb</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Academic</span>
+              <div class="evt-title">
+                Spring Research Symposium — Open to All Departments
+              </div>
+              <div class="evt-meta">
+                <span>📍 Science Complex</span><span>🕕 9:00 AM</span>
+              </div>
+            </div>
+          </div>
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">08</div>
+              <div class="evt-month">Feb</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Career</span>
+              <div class="evt-title">
+                Spring Career Fair — 200+ Employers Attending
+              </div>
+              <div class="evt-meta">
+                <span>📍 University Center</span><span>🕕 10:00 AM</span>
+              </div>
+            </div>
+          </div>
+          <div class="evt-item">
+            <div class="evt-date">
+              <div class="evt-day">14</div>
+              <div class="evt-month">Feb</div>
+            </div>
+            <div class="evt-info">
+              <span class="evt-badge">Concert</span>
+              <div class="evt-title">
+                Annual University Orchestra — Valentine's Gala
+              </div>
+              <div class="evt-meta">
+                <span>📍 Performing Arts Center</span><span>🕕 8:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACULTY -->
+    <section class="section fac-bg" id="faculty">
+      <div class="si">
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 52px;
+          "
+          class="fade-up"
+        >
+          <div>
+            <p class="eyebrow">Principal Staff & Faculty</p>
+            <h2 class="sec-title">Meet Our Leaders</h2>
+            <p class="sec-sub">
+              Our faculty are world-renowned researchers, Nobel laureates, and
+              industry pioneers — all passionate about teaching.
+            </p>
+          </div>
+          <a href="#" class="link-more">All faculty →</a>
+        </div>
+        <div class="fac-grid">
+          <div class="fac-card fade-up">
+            <div class="fac-initials">EP</div>
+            <div class="fac-name">Dr. Eleanor Price</div>
+            <div class="fac-role">University President</div>
+            <div class="fac-dept">
+              Former MIT Dean · Harvard PhD · Author of 6 books on higher
+              education
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">MR</div>
+            <div class="fac-name">Prof. Marcus Reid</div>
+            <div class="fac-role">Provost & VP Academic</div>
+            <div class="fac-dept">
+              AI & Cognitive Science · Stanford PhD · 200+ published papers
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">SC</div>
+            <div class="fac-name">Dr. Sofia Chen</div>
+            <div class="fac-role">Dean of Engineering</div>
+            <div class="fac-dept">
+              Robotics & Automation · IEEE Fellow · Caltech PhD
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">JA</div>
+            <div class="fac-name">Prof. James Adeyemi</div>
+            <div class="fac-role">Dean of Business</div>
+            <div class="fac-dept">
+              Behavioral Economics · LSE PhD · World Bank Consultant
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">LW</div>
+            <div class="fac-name">Dr. Laila Walsh</div>
+            <div class="fac-role">Chair, Medical School</div>
+            <div class="fac-dept">
+              Neuroscience & Surgery · Johns Hopkins MD/PhD
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">TP</div>
+            <div class="fac-name">Prof. Thomas Park</div>
+            <div class="fac-role">Head of Research</div>
+            <div class="fac-dept">
+              Climate Science · Nature Editor · NSF Board Member
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">NI</div>
+            <div class="fac-name">Dr. Nadia Ibrahim</div>
+            <div class="fac-role">Director, Intl. Affairs</div>
+            <div class="fac-dept">
+              International Relations · Oxford DPhil · UN Adviser
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+          <div class="fac-card fade-up">
+            <div class="fac-initials">RG</div>
+            <div class="fac-name">Prof. Ravi Gupta</div>
+            <div class="fac-role">Chief Innovation Officer</div>
+            <div class="fac-dept">
+              Entrepreneurship & VC · 3 Successful Exits · Forbes 30U30
+            </div>
+            <div class="fac-social">
+              <a href="#">in</a><a href="#">✉</a><a href="#">🔬</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gal-bg" id="gallery">
+      <div class="si">
+        <div class="fade-up">
+          <p class="eyebrow">Campus Gallery</p>
+          <h2 class="sec-title">Life at Evergreen</h2>
+        </div>
+        <div class="gal-grid">
+          <div class="gal-item gal-1">
+            <div
+              class="gal-item-inner"
+              style="color: rgba(255, 255, 255, 0.12)"
+            >
+              🎓
+            </div>
+          </div>
+          <div class="gal-item gal-2">
+            <div
+              class="gal-item-inner"
+              style="color: rgba(255, 255, 255, 0.12)"
+            >
+              🔬
+            </div>
+          </div>
+          <div class="gal-item gal-3">
+            <div class="gal-item-inner" style="color: rgba(10, 30, 60, 0.2)">
+              📚
+            </div>
+          </div>
+          <div class="gal-item gal-4">
+            <div class="gal-item-inner" style="color: rgba(10, 30, 60, 0.18)">
+              🎭
+            </div>
+          </div>
+          <div class="gal-item gal-5">
+            <div
+              class="gal-item-inner"
+              style="color: rgba(255, 255, 255, 0.12)"
+            >
+              🏅
+            </div>
+          </div>
+          <div class="gal-item gal-6">
+            <div
+              class="gal-item-inner"
+              style="color: rgba(255, 255, 255, 0.12)"
+            >
+              🌿
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="test-bg">
+      <div class="si">
+        <div
+          class="fade-up"
+          style="text-align: center; max-width: 600px; margin: 0 auto"
+        >
+          <p class="eyebrow" style="color: var(--gold-light)">Student Voices</p>
+          <h2 class="sec-title" style="color: #fff">What Our Students Say</h2>
+        </div>
+        <div class="test-grid">
+          <div class="test-card fade-up">
+            <div class="test-quote">"</div>
+            <p class="test-text">
+              Evergreen gave me not just a degree, but a network that opened
+              doors I never imagined. The research opportunities here are
+              unparalleled — I published my first paper in my sophomore year.
+            </p>
+            <div class="test-author">
+              <div class="test-av">AK</div>
+              <div>
+                <div class="test-name">Amara Kofi</div>
+                <div class="test-role">
+                  Computer Science '23 · Now at Google
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card fade-up">
+            <div class="test-quote">"</div>
+            <p class="test-text">
+              The faculty here are genuinely invested in your growth. Dr. Chen's
+              mentorship shaped my career in ways no textbook could. Campus life
+              is vibrant — I never wanted to leave.
+            </p>
+            <div class="test-author">
+              <div class="test-av">BM</div>
+              <div>
+                <div class="test-name">Beatriz Mendoza</div>
+                <div class="test-role">Biomedical Eng. '22 · PhD at MIT</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card fade-up">
+            <div class="test-quote">"</div>
+            <p class="test-text">
+              As an international student, I was worried about fitting in.
+              Evergreen's 180-country student body made me feel at home from day
+              one. The diversity here is a true competitive advantage.
+            </p>
+            <div class="test-author">
+              <div class="test-av">YS</div>
+              <div>
+                <div class="test-name">Yuki Sato</div>
+                <div class="test-role">
+                  Intl. Business '24 · Goldman Sachs Tokyo
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section news-bg" id="news">
+      <div class="si">
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+          "
+          class="fade-up"
+        >
+          <div>
+            <p class="eyebrow">News & Research</p>
+            <h2 class="sec-title">Latest from Campus</h2>
+          </div>
+          <a href="#" class="link-more">All news →</a>
+        </div>
+        <div class="news-grid">
+          <div class="news-card fade-up">
+            <div
+              class="news-img news-img-hero"
+              style="color: rgba(255, 255, 255, 0.1)"
+            >
+              🔬
+            </div>
+            <div class="news-body">
+              <span class="news-tag">Research</span>
+              <div class="news-title news-title-lg">
+                Evergreen Scientists Develop Breakthrough in Alzheimer's
+                Detection Using AI
+              </div>
+              <div class="news-text">
+                A team led by Dr. Walsh's lab has published groundbreaking
+                research in Nature Medicine, offering a new protocol that
+                detects Alzheimer's markers 10 years earlier than current
+                methods.
+              </div>
+              <div class="news-meta">January 10, 2025 · 5 min read</div>
+            </div>
+          </div>
+          <div class="news-card fade-up">
+            <div class="news-img">🏆</div>
+            <div class="news-body">
+              <span class="news-tag">Awards</span>
+              <div class="news-title">
+                Prof. Marcus Reid Named Among TIME's 100 Most Influential People
+              </div>
+              <div class="news-text">
+                Evergreen's Provost has been recognized for his contributions to
+                AI ethics policy.
+              </div>
+              <div class="news-meta">January 7, 2025 · 3 min read</div>
+            </div>
+          </div>
+          <div class="news-card fade-up">
+            <div class="news-img">🎓</div>
+            <div class="news-body">
+              <span class="news-tag">Admissions</span>
+              <div class="news-title">
+                Spring 2025 Applications Now Open — Record Scholarship Pool
+              </div>
+              <div class="news-text">
+                $180M in scholarships available for incoming students across all
+                programs.
+              </div>
+              <div class="news-meta">January 3, 2025 · 2 min read</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-strip">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-title">Ready to Begin Your Journey?</h2>
+          <p class="cta-sub">
+            Applications for Fall 2025 are open. Join 42,000 students from
+            around the world.
+          </p>
+        </div>
+        <div class="cta-btns">
+          <button class="btn-gold">Apply for Fall 2025</button
+          ><button class="btn-ghost-nav">Request Information</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="f-logo">Ever<span>green</span> University</div>
+            <p class="f-desc">
+              A world-class institution dedicated to advancing knowledge,
+              inspiring curiosity, and empowering the next generation of global
+              leaders.
+            </p>
+            <div class="f-contact">
+              <p>📍 1892 University Drive, Evergreen, CA 94120</p>
+              <p>📞 +1 (415) 892-0100</p>
+              <p>✉️ admissions@evergreen.edu</p>
+            </div>
+          </div>
+          <div class="f-col">
+            <h4>Academics</h4>
+            <ul>
+              <li><a href="#">Undergraduate</a></li>
+              <li><a href="#">Graduate Programs</a></li>
+              <li><a href="#">Online Courses</a></li>
+              <li><a href="#">Research Centers</a></li>
+              <li><a href="#">Libraries</a></li>
+              <li><a href="#">Academic Calendar</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Campus Life</h4>
+            <ul>
+              <li><a href="#">Housing & Dining</a></li>
+              <li><a href="#">Student Clubs</a></li>
+              <li><a href="#">Athletics</a></li>
+              <li><a href="#">Health & Wellness</a></li>
+              <li><a href="#">International Students</a></li>
+              <li><a href="#">Career Services</a></li>
+            </ul>
+          </div>
+          <div class="f-col">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About Evergreen</a></li>
+              <li><a href="#">Administration</a></li>
+              <li><a href="#">News & Events</a></li>
+              <li><a href="#">Alumni Network</a></li>
+              <li><a href="#">Give to Evergreen</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-btm">
+          <div class="f-copy">
+            © 2025 Evergreen University. All rights reserved. · Privacy Policy ·
+            Terms of Use
+          </div>
+          <div class="f-social">
+            <a class="soc-btn" href="#">f</a><a class="soc-btn" href="#">in</a
+            ><a class="soc-btn" href="#">𝕏</a><a class="soc-btn" href="#">▶</a
+            ><a class="soc-btn" href="#">📸</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function animateCounter(id, target, suffix, dur) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const step = target / (dur / 16);
+        let cur = 0;
+        const t = setInterval(() => {
+          cur = Math.min(cur + step, target);
+          el.innerHTML = Math.round(cur) + (suffix || "");
+          if (cur >= target) clearInterval(t);
+        }, 16);
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => io.observe(el));
+
+      const band = document.querySelector(".stats-band");
+      let done = false;
+      const so = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && !done) {
+            done = true;
+            animateCounter("s1", 320, "+", 1200);
+            animateCounter("s2", 4800, "+", 1200);
+            animateCounter("s3", 28, "", 1000);
+            animateCounter("s4", 94, "", 1000);
+            so.disconnect();
+          }
+        },
+        { threshold: 0.3 },
+      );
+      if (band) so.observe(band);
+
+      document.querySelectorAll(".prog-tab").forEach((t) => {
+        t.addEventListener("click", () => {
+          document
+            .querySelectorAll(".prog-tab")
+            .forEach((x) => x.classList.remove("active"));
+          t.classList.add("active");
+        });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const el = document.querySelector(a.getAttribute("href"));
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

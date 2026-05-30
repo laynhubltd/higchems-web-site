@@ -1,0 +1,50 @@
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+
+@theme {
+  --color-maroon: #800000;
+  --color-maroon-deep: #5a0000;
+  --color-maroon-mid: #8b0000;
+  --color-maroon-tint: #f5e6e6;
+  --color-gold: #ffd700;
+  --color-gold-light: #ffe566;
+  --color-surface: #f4f6f9;
+  --color-body: #1a1a1a;
+  --color-muted: #8a9aaa;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-surface);
+    color: var(--color-body);
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

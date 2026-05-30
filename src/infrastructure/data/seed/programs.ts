@@ -1,0 +1,218 @@
+import type { Program, ProgramCategory } from '@/domain/site-content/entities'
+
+export const programCategoriesSeed: ProgramCategory[] = [
+  { id: 'all', label: 'All Programs' },
+  { id: 'health', label: 'Faculty of Health' },
+  { id: 'management', label: 'Faculty of Management Sciences' },
+  { id: 'diploma-health', label: 'Diploma — Health Sciences' },
+  { id: 'diploma-management', label: 'Diploma — Management Sciences' },
+]
+
+export const programsSeed: Program[] = [
+  // Faculty of Health
+  {
+    id: 'bmls',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'Bachelor of Medical Laboratory Science',
+    abbreviation: 'BMLS',
+    icon: '🔬',
+  },
+  {
+    id: 'bnsc',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'Bachelor of Nursing Science',
+    abbreviation: 'BNSC',
+    icon: '🩺',
+  },
+  {
+    id: 'behs',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'B.Sc. Environmental Health Science',
+    abbreviation: 'B-E-H-S',
+    icon: '🌿',
+  },
+  {
+    id: 'bsc-public-health',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'B.Sc. Public Health',
+    icon: '🏥',
+  },
+  {
+    id: 'bsc-community-health',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'B.Sc. Community Health',
+    icon: '🤝',
+  },
+  {
+    id: 'bsc-health-economics',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'B.Sc. Health Economics',
+    icon: '📊',
+  },
+  {
+    id: 'hnd-public-health-nursing',
+    category: 'Faculty of Health',
+    categoryId: 'health',
+    title: 'Higher National Diploma (HND) Public Health Nursing',
+    icon: '🎓',
+  },
+
+  // Faculty of Management Sciences
+  {
+    id: 'bsc-economics',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Economics',
+    icon: '📈',
+  },
+  {
+    id: 'bsc-accounting',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Accounting',
+    icon: '🧮',
+  },
+  {
+    id: 'bsc-business-admin',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Business Administration',
+    icon: '💼',
+  },
+  {
+    id: 'bsc-political-science',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Political Science & International Relations',
+    icon: '🌍',
+  },
+  {
+    id: 'bsc-public-admin',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Public Administration',
+    icon: '🏛️',
+  },
+  {
+    id: 'bsc-banking-finance',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Banking and Finance',
+    icon: '🏦',
+  },
+  {
+    id: 'bsc-entrepreneurship',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Entrepreneurship Studies',
+    icon: '💡',
+  },
+  {
+    id: 'bsc-peace-conflict',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Peace & Conflict Resolutions',
+    icon: '☮️',
+  },
+  {
+    id: 'bsc-criminology',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Criminology & Security Studies',
+    icon: '🛡️',
+  },
+  {
+    id: 'bsc-development',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. Development Studies',
+    icon: '🌱',
+  },
+  {
+    id: 'bsc-general-studies',
+    category: 'Faculty of Management Sciences',
+    categoryId: 'management',
+    title: 'B.Sc. General Studies & Communication Skills',
+    icon: '📝',
+  },
+
+  // Diploma Programmes — Health Sciences
+  {
+    id: 'dip-med-lab',
+    category: 'Diploma — Health Sciences',
+    categoryId: 'diploma-health',
+    title: 'Diploma in Medical Laboratory Technology',
+    icon: '🔬',
+  },
+  {
+    id: 'dip-nursing',
+    category: 'Diploma — Health Sciences',
+    categoryId: 'diploma-health',
+    title: 'Diploma in Nursing Sciences',
+    icon: '🩺',
+  },
+  {
+    id: 'dip-public-health',
+    category: 'Diploma — Health Sciences',
+    categoryId: 'diploma-health',
+    title: 'Diploma in Public Health',
+    icon: '🏥',
+  },
+  {
+    id: 'dip-environmental-health',
+    category: 'Diploma — Health Sciences',
+    categoryId: 'diploma-health',
+    title: 'Diploma in Environmental Health',
+    icon: '🌿',
+  },
+  {
+    id: 'dip-community-health',
+    category: 'Diploma — Health Sciences',
+    categoryId: 'diploma-health',
+    title: 'Diploma in Community Health',
+    icon: '🤝',
+  },
+
+  // Diploma Programmes — Management Sciences
+  {
+    id: 'dip-entrepreneurship',
+    category: 'Diploma — Management Sciences',
+    categoryId: 'diploma-management',
+    title: 'Diploma in Entrepreneurship Studies',
+    icon: '💡',
+  },
+  {
+    id: 'dip-accounting',
+    category: 'Diploma — Management Sciences',
+    categoryId: 'diploma-management',
+    title: 'Diploma in Accounting',
+    icon: '🧮',
+  },
+  {
+    id: 'dip-business-admin',
+    category: 'Diploma — Management Sciences',
+    categoryId: 'diploma-management',
+    title: 'Diploma in Business Administration',
+    icon: '💼',
+  },
+  {
+    id: 'dip-public-admin',
+    category: 'Diploma — Management Sciences',
+    categoryId: 'diploma-management',
+    title: 'Diploma in Public Administration',
+    icon: '🏛️',
+  },
+  {
+    id: 'dip-criminology',
+    category: 'Diploma — Management Sciences',
+    categoryId: 'diploma-management',
+    title: 'Diploma in Criminology & Security Studies',
+    icon: '🛡️',
+  },
+]
