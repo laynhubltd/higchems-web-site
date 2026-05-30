@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Get the latest code from GitHub
+      # Step 1: Get the latest code from GitHub good
       - name: Checkout Code
         uses: actions/checkout@v4
 
