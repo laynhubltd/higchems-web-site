@@ -74,6 +74,7 @@ export interface NewsArticle {
   date: string
   readTime: string
   icon: string
+  image?: string
   featured?: boolean
 }
 

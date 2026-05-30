@@ -11,8 +11,8 @@ export const homePageContentSeed: HomePageContent = {
       { label: 'Class of 2024', value: '280 Graduates' },
       {
         label: 'Applications Open',
-        value: '2025/2026 Session',
-        detail: 'Deadline: March 31, 2025',
+        value: '2026/2027 Session',
+        detail: 'Deadline: July, 2026',
       },
     ],
   },

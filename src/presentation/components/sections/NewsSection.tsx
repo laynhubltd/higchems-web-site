@@ -43,8 +43,16 @@ export function NewsSection() {
               className="h-full overflow-hidden border-maroon-tint !shadow-none lg:row-span-2"
               styles={{ body: { padding: 0 } }}
             >
-              <div className="flex h-48 items-center justify-center bg-maroon text-6xl text-white/10 lg:h-64">
-                {featured.icon}
+              <div className="flex items-center justify-center bg-maroon text-6xl text-white/10">
+                {featured.image ? (
+                  <img
+                    src={featured.image}
+                    alt={featured.title}
+                    className="w-full"
+                  />
+                ) : (
+                  featured.icon
+                )}
               </div>
               <div className="p-6">
                 <Tag color="#800000" className="mb-3">
