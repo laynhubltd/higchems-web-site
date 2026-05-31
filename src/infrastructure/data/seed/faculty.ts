@@ -11,7 +11,7 @@ export const facultySeed: FacultyMember[] = [
   {
     id: '2',
     initials: 'KA',
-    name: 'Professor Kayode Asaju',
+    name: 'Prof. Kayode Asaju',
     role: 'Program Coordinator',
     department: 'Political Science and International Relations',
   },
