@@ -3,10 +3,10 @@ import type { FacultyMember } from '@/domain/site-content/entities'
 export const facultySeed: FacultyMember[] = [
   {
     id: '1',
-    initials: 'DA',
-    name: 'Dr. Adaeze Okonkwo',
-    role: 'Dean',
-    department: 'Faculty of Health',
+    initials: 'ES',
+    name: 'Prof. Elkanah Obbadiah Sambo',
+    role: 'Program Coordinator',
+    department: 'Public Health Sciences',
   },
   {
     id: '2',
