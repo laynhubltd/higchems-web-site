@@ -57,18 +57,18 @@ export const programsSeed: Program[] = [
 
   // Diploma Programmes — Health Sciences
   {
-    id: 'dip-med-lab',
+    id: 'nd-epidemiology',
     category: 'Diploma — Health Sciences',
     categoryId: 'diploma-health',
-    title: 'Diploma in Medical Laboratory Technology',
-    icon: '🔬',
+    title: 'National Diploma in Epidemiology and Disease Control',
+    icon: '🦠',
   },
   {
-    id: 'dip-nursing',
+    id: 'nd-physiotherapy',
     category: 'Diploma — Health Sciences',
     categoryId: 'diploma-health',
-    title: 'Diploma in Nursing Sciences',
-    icon: '🩺',
+    title: 'ND Physiotherapy',
+    icon: '💪',
   },
   {
     id: 'dip-public-health',
