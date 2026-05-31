@@ -94,17 +94,17 @@ export const programsSeed: Program[] = [
 
   // Diploma Programmes — Management Sciences
   {
-    id: 'dip-entrepreneurship',
+    id: 'dip-public-admin',
     category: 'Diploma — Management Sciences',
     categoryId: 'diploma-management',
-    title: 'Diploma in Entrepreneurship Studies',
-    icon: '💡',
+    title: 'Diploma in Public Administration',
+    icon: '🏛️',
   },
   {
     id: 'dip-accounting',
     category: 'Diploma — Management Sciences',
     categoryId: 'diploma-management',
-    title: 'Diploma in Accounting',
+    title: 'Diploma in Accountancy',
     icon: '🧮',
   },
   {
@@ -115,17 +115,10 @@ export const programsSeed: Program[] = [
     icon: '💼',
   },
   {
-    id: 'dip-public-admin',
+    id: 'dip-social-work',
     category: 'Diploma — Management Sciences',
     categoryId: 'diploma-management',
-    title: 'Diploma in Public Administration',
-    icon: '🏛️',
-  },
-  {
-    id: 'dip-criminology',
-    category: 'Diploma — Management Sciences',
-    categoryId: 'diploma-management',
-    title: 'Diploma in Criminology & Security Studies',
-    icon: '🛡️',
+    title: 'Diploma in Social Works',
+    icon: '🤲',
   },
 ]
