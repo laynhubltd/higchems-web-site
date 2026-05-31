@@ -67,6 +67,7 @@ export function ProgramsSection() {
   const managementPrograms = programs.filter((p) => p.categoryId === 'management')
   const diplomaHealthPrograms = programs.filter((p) => p.categoryId === 'diploma-health')
   const diplomaManagementPrograms = programs.filter((p) => p.categoryId === 'diploma-management')
+  const diplomaGeneralPrograms = programs.filter((p) => p.categoryId === 'diploma-general')
 
   const showAllColumns = activeCategory === 'all'
 
@@ -107,15 +108,22 @@ export function ProgramsSection() {
 
       {showAllColumns ? (
         <FadeUp>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-2">
             <ProgramColumn title="Faculty of Health" programs={healthPrograms} />
             <ProgramColumn title="Faculty of Management Sciences" programs={managementPrograms} />
+          </div>
+          <div className="mt-5 grid gap-5 lg:grid-cols-3">
             <ProgramColumn
-              title="Diploma Programmes"
-              subsections={[
-                { title: 'Health Sciences', programs: diplomaHealthPrograms },
-                { title: 'Management Sciences', programs: diplomaManagementPrograms },
-              ]}
+              title="Diploma — Health Sciences"
+              programs={diplomaHealthPrograms}
+            />
+            <ProgramColumn
+              title="Diploma — Management Sciences"
+              programs={diplomaManagementPrograms}
+            />
+            <ProgramColumn
+              title="Diploma — General Sciences"
+              programs={diplomaGeneralPrograms}
             />
           </div>
         </FadeUp>
@@ -134,6 +142,12 @@ export function ProgramsSection() {
             <ProgramColumn
               title="Diploma — Management Sciences"
               programs={diplomaManagementPrograms}
+            />
+          )}
+          {activeCategory === 'diploma-general' && (
+            <ProgramColumn
+              title="Diploma — General Sciences"
+              programs={diplomaGeneralPrograms}
             />
           )}
         </FadeUp>
