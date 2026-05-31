@@ -10,10 +10,10 @@ export const facultySeed: FacultyMember[] = [
   },
   {
     id: '2',
-    initials: 'MU',
-    name: 'Prof. Musa Ibrahim',
-    role: 'Head of Department',
-    department: 'Medical Laboratory Science',
+    initials: 'KA',
+    name: 'Professor Kayode Asaju',
+    role: 'Program Coordinator',
+    department: 'Political Science and International Relations',
   },
   {
     id: '3',
