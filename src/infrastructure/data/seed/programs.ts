@@ -27,25 +27,11 @@ export const programsSeed: Program[] = [
 
   // Faculty of Management Sciences
   {
-    id: 'bsc-economics',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Economics',
-    icon: '📈',
-  },
-  {
     id: 'bsc-accounting',
     category: 'Faculty of Management Sciences',
     categoryId: 'management',
     title: 'B.Sc. Accounting',
     icon: '🧮',
-  },
-  {
-    id: 'bsc-business-admin',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Business Administration',
-    icon: '💼',
   },
   {
     id: 'bsc-political-science',
@@ -55,27 +41,6 @@ export const programsSeed: Program[] = [
     icon: '🌍',
   },
   {
-    id: 'bsc-public-admin',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Public Administration',
-    icon: '🏛️',
-  },
-  {
-    id: 'bsc-banking-finance',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Banking and Finance',
-    icon: '🏦',
-  },
-  {
-    id: 'bsc-entrepreneurship',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Entrepreneurship Studies',
-    icon: '💡',
-  },
-  {
     id: 'bsc-peace-conflict',
     category: 'Faculty of Management Sciences',
     categoryId: 'management',
@@ -83,25 +48,11 @@ export const programsSeed: Program[] = [
     icon: '☮️',
   },
   {
-    id: 'bsc-criminology',
+    id: 'bsc-educational-admin',
     category: 'Faculty of Management Sciences',
     categoryId: 'management',
-    title: 'B.Sc. Criminology & Security Studies',
-    icon: '🛡️',
-  },
-  {
-    id: 'bsc-development',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. Development Studies',
-    icon: '🌱',
-  },
-  {
-    id: 'bsc-general-studies',
-    category: 'Faculty of Management Sciences',
-    categoryId: 'management',
-    title: 'B.Sc. General Studies & Communication Skills',
-    icon: '📝',
+    title: 'B.Sc. Educational Administration and Planning',
+    icon: '📚',
   },
 
   // Diploma Programmes — Health Sciences
