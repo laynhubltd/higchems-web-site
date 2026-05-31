@@ -11,30 +11,6 @@ export const programCategoriesSeed: ProgramCategory[] = [
 export const programsSeed: Program[] = [
   // Faculty of Health
   {
-    id: 'bmls',
-    category: 'Faculty of Health',
-    categoryId: 'health',
-    title: 'Bachelor of Medical Laboratory Science',
-    abbreviation: 'BMLS',
-    icon: '🔬',
-  },
-  {
-    id: 'bnsc',
-    category: 'Faculty of Health',
-    categoryId: 'health',
-    title: 'Bachelor of Nursing Science',
-    abbreviation: 'BNSC',
-    icon: '🩺',
-  },
-  {
-    id: 'behs',
-    category: 'Faculty of Health',
-    categoryId: 'health',
-    title: 'B.Sc. Environmental Health Science',
-    abbreviation: 'B-E-H-S',
-    icon: '🌿',
-  },
-  {
     id: 'bsc-public-health',
     category: 'Faculty of Health',
     categoryId: 'health',
@@ -47,20 +23,6 @@ export const programsSeed: Program[] = [
     categoryId: 'health',
     title: 'B.Sc. Community Health',
     icon: '🤝',
-  },
-  {
-    id: 'bsc-health-economics',
-    category: 'Faculty of Health',
-    categoryId: 'health',
-    title: 'B.Sc. Health Economics',
-    icon: '📊',
-  },
-  {
-    id: 'hnd-public-health-nursing',
-    category: 'Faculty of Health',
-    categoryId: 'health',
-    title: 'Higher National Diploma (HND) Public Health Nursing',
-    icon: '🎓',
   },
 
   // Faculty of Management Sciences
