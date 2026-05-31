@@ -6,6 +6,7 @@ export const programCategoriesSeed: ProgramCategory[] = [
   { id: 'management', label: 'Faculty of Management Sciences' },
   { id: 'diploma-health', label: 'Diploma — Health Sciences' },
   { id: 'diploma-management', label: 'Diploma — Management Sciences' },
+  { id: 'diploma-general', label: 'Diploma — General Sciences' },
 ]
 
 export const programsSeed: Program[] = [
@@ -120,5 +121,14 @@ export const programsSeed: Program[] = [
     categoryId: 'diploma-management',
     title: 'Diploma in Social Works',
     icon: '🤲',
+  },
+
+  // Diploma Programmes — General Sciences
+  {
+    id: 'dip-computer-science',
+    category: 'Diploma — General Sciences',
+    categoryId: 'diploma-general',
+    title: 'Diploma in Computer Science',
+    icon: '💻',
   },
 ]
