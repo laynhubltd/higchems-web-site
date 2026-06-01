@@ -86,8 +86,8 @@ export const homePageContentSeed: HomePageContent = {
   cta: {
     title: 'Ready to Begin Your Journey at HIGCHEMS?',
     subtitle:
-      'Applications for the 2025/2026 session are open. Join over 1,200 students building careers in health and management.',
-    primaryLabel: 'Apply for 2025/2026',
+      'Applications for the 2026/2027 session are open. Join over 1,200 students building careers in health and management.',
+    primaryLabel: 'Apply for 2026/2027',
     secondaryLabel: 'Request Information',
   },
   footer: {
