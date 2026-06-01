@@ -6,7 +6,7 @@ export const newsSeed: NewsArticle[] = [
     tag: 'Admissions',
     title: '2026/2027 Admissions Now Open — Scholarships Available',
     excerpt:
-      'HIGCHEMS welcomes applications for nursing, public health, management, and certification programmes. Merit and need-based scholarships available.',
+      'HIGCHEMS welcomes applications for public health, management, and certification programmes. Merit and need-based scholarships available.',
     date: 'January 10, 2025',
     readTime: '4 min read',
     icon: '🎓',
