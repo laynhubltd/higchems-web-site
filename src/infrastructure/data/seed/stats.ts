@@ -3,10 +3,10 @@ import type { Stat } from '@/domain/site-content/entities'
 export const statsSeed: Stat[] = [
   {
     id: 's1',
-    value: 28,
+    value: 15,
     suffix: '+',
     label: 'Academic Programs',
-    sublabel: 'Across 4 faculties',
+    sublabel: 'Across 3 faculties',
   },
   {
     id: 's2',
