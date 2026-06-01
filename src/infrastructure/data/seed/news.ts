@@ -14,16 +14,6 @@ export const newsSeed: NewsArticle[] = [
     featured: true,
   },
   {
-    id: '2',
-    tag: 'Accreditation',
-    title: 'HIGCHEMS Nursing Programme Receives Full Accreditation',
-    excerpt:
-      'The Nursing and Midwifery Council of Nigeria has granted full accreditation to our Bachelor of Nursing Science programme.',
-    date: 'January 7, 2025',
-    readTime: '3 min read',
-    icon: '🏆',
-  },
-  {
     id: '3',
     tag: 'Community',
     title: 'Students Lead Free Health Screening in Takum High Level',

@@ -28,7 +28,7 @@ export const homePageContentSeed: HomePageContent = {
         icon: '🎓',
         title: 'Accredited Programmes',
         description:
-          'Nursing, public health, laboratory science, and management degrees recognized by relevant professional bodies.',
+          'Public health, community health, and management degrees recognized by relevant professional bodies.',
       },
       {
         icon: '🏥',

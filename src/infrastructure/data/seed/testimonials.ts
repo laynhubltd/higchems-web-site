@@ -3,10 +3,10 @@ import type { Testimonial } from '@/domain/site-content/entities'
 export const testimonialsSeed: Testimonial[] = [
   {
     id: '1',
-    text: 'HIGCHEMS gave me the clinical skills and confidence to serve my community. The nursing programme and hospital placements prepared me for real-world healthcare delivery.',
+    text: 'HIGCHEMS gave me the clinical skills and confidence to serve my community. The public health programme and community placements prepared me for real-world healthcare delivery.',
     initials: 'AB',
     name: 'Amina Bello',
-    role: "Nursing Science '24 · RN at Jalingo General Hospital",
+    role: "Public Health '24 · Health Coordinator, Takum",
   },
   {
     id: '2',
