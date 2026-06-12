@@ -10,7 +10,7 @@ export function useHomePageViewModel() {
   }, [])
 
   const onApply = useCallback(() => {
-    window.alert('Admissions application portal coming soon.')
+    window.open('https://higchems.repromas.app', '_blank', 'noopener,noreferrer')
   }, [])
 
   const onRequestInfo = useCallback(() => {
