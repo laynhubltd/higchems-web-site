@@ -11,12 +11,12 @@ export function Navbar() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-[1000] border-b border-white/10 bg-maroon-deep/97 backdrop-blur-[14px]">
-      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-4 sm:px-8">
-        <div className="flex items-center gap-3">
+      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-3 sm:px-8">
+        <div className="flex items-center gap-2 sm:gap-3">
           {school?.logoUrl && (
-            <img src={school.logoUrl} alt={school.acronym} className="h-10 w-10 object-contain" />
+            <img src={school.logoUrl} alt={school.acronym} className="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
           )}
-          <div className="font-serif text-[22px] font-bold text-white">
+          <div className="font-serif text-[18px] sm:text-[22px] font-bold text-white">
             HIG<span className="text-gold-light">CHEMS</span>
           </div>
         </div>
@@ -31,18 +31,19 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           <Button
             ghost
-            className="hidden !border-white/25 !font-semibold !text-white hover:!border-white/45 sm:inline-flex"
+            size="small"
+            className="!border-white/25 !font-semibold !text-white hover:!border-white/45"
             onClick={() => window.open('https://higchems.repromas.app', '_blank', 'noopener,noreferrer')}
           >
             Login
           </Button>
           <Button
             type="primary"
-            className="!border-none !bg-gold-light !font-bold !text-maroon hover:!opacity-90"
             size="small"
+            className="!border-none !bg-gold-light !font-bold !text-maroon hover:!opacity-90"
             onClick={onApply}
           >
             Apply Now
