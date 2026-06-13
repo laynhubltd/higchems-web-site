@@ -11,7 +11,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-[1000] border-b border-white/10 bg-maroon-deep/97 backdrop-blur-[14px]">
-      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-8">
+      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-4 sm:px-8">
         <div className="flex items-center gap-3">
           {school?.logoUrl && (
             <img src={school.logoUrl} alt={school.acronym} className="h-10 w-10 object-contain" />
@@ -31,10 +31,10 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Button
             ghost
-            className="!border-white/25 !font-semibold !text-white hover:!border-white/45"
+            className="hidden !border-white/25 !font-semibold !text-white hover:!border-white/45 sm:inline-flex"
             onClick={() => window.open('https://higchems.repromas.app', '_blank', 'noopener,noreferrer')}
           >
             Login
@@ -42,6 +42,7 @@ export function Navbar() {
           <Button
             type="primary"
             className="!border-none !bg-gold-light !font-bold !text-maroon hover:!opacity-90"
+            size="small"
             onClick={onApply}
           >
             Apply Now
