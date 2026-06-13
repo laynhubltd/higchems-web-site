@@ -31,13 +31,22 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Button
-          type="primary"
-          className="!border-none !bg-gold-light !font-bold !text-maroon hover:!opacity-90"
-          onClick={onApply}
-        >
-          Apply Now
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button
+            ghost
+            className="!border-white/25 !font-semibold !text-white hover:!border-white/45"
+            onClick={() => window.open('https://higchems.repromas.app', '_blank', 'noopener,noreferrer')}
+          >
+            Login
+          </Button>
+          <Button
+            type="primary"
+            className="!border-none !bg-gold-light !font-bold !text-maroon hover:!opacity-90"
+            onClick={onApply}
+          >
+            Apply Now
+          </Button>
+        </div>
       </div>
     </nav>
   )
